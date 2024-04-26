@@ -4,7 +4,18 @@
   <hr class="text-light">
 
   <div class="list-group list-reset">
-    <button class="list-group-item list-group-item-action">The Office</button>
+    <button
+      *ngFor="let tag of tags"
+      class="list-group-item list-group-item-action mb-2"
+      (click)="searchTag(tag)"
+    >
+      {{ tag | titlecase }}
+    </button>
+    <button
+      *ngIf="tags.length > 0"
+      class="btn btn-outline-danger"
+      (click)="clearHistory()"
+    >clear history</button>
   </div>
 
 </div>
